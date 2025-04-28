@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/Asac2142/go-nave-deriva/cmd/api/handlers"
+	"github.com/Asac2142/go-nave-deriva/cmd/api/middleware"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -18,5 +19,5 @@ func Routes(logger *slog.Logger) http.Handler {
 	router.HandlerFunc(http.MethodGet, "/repair-bay", handlerNave.RepairBayHandler)
 	router.HandlerFunc(http.MethodPost, "/teapot", handlerNave.TeaPotHandler)
 
-	return router
+	return middleware.CorsMiddleware(router)
 }
