@@ -20,7 +20,7 @@ func main() {
 	server := &http.Server{
 		Addr:     *addr,
 		ErrorLog: slog.NewLogLogger(logger.Handler(), slog.LevelError),
-		Handler:  routes.Routes(logger), // TODO pass-in the logger?
+		Handler:  routes.Routes(logger),
 	}
 
 	logger.Info("Starting server", "addr", *addr)
