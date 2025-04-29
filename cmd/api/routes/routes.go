@@ -18,6 +18,7 @@ func Routes(logger *slog.Logger) http.Handler {
 	router.HandlerFunc(http.MethodGet, "/status", handlerNave.StatusHandler)
 	router.HandlerFunc(http.MethodGet, "/repair-bay", handlerNave.RepairBayHandler)
 	router.HandlerFunc(http.MethodPost, "/teapot", handlerNave.TeaPotHandler)
+	router.HandlerFunc(http.MethodGet, "/phase-change-diagram", handlerNave.PhaseChangeDiagram)
 
 	return middleware.CorsMiddleware(router)
 }
